@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowDownRight, ArrowUpRight, Github, Globe2, MoveUpRight, Radio, Sparkles, Zap } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, MoveUpRight, Sparkles, Zap } from 'lucide-react'
 
 const links = [
   { name: 'pump.fun', handle: '@Zyvenn', description: 'Where ideas turn into on-chain experiments.', href: 'https://pump.fun/u/Zyvenn', mark: 'P', tone: 'pump', label: 'TOKEN LAUNCHPAD' },
