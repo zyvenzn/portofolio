@@ -1,55 +1,133 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDownRight, ArrowUpRight, MoveUpRight, Sparkles, Zap } from 'lucide-react'
+import {
+  ArrowDown, ArrowRight, ArrowUpRight, Blocks, Code2, Github, Gamepad2,
+  Lightbulb, Menu, Music2, Palette, X, ChartNoAxesCombined,
+  Home, UserRound, BriefcaseBusiness, Mail
+} from 'lucide-react'
 
-const links = [
-  { name: 'pump.fun', handle: '@Zyvenn', description: 'Where ideas turn into on-chain experiments.', href: 'https://pump.fun/u/Zyvenn', mark: 'P', tone: 'pump', label: 'TOKEN LAUNCHPAD' },
-  { name: 'fomo', handle: 'fomo.family', description: 'Tuned in to the culture. Always early.', href: 'https://fomo.family/r/zyvengm', mark: 'f', tone: 'fomo', label: 'COMMUNITY' },
-  { name: 'X / Twitter', handle: '@Zyvengm', description: 'Thoughts, updates, and everything in between.', href: 'https://x.com/Zyvengm', mark: '𝕏', tone: 'x', label: 'SOCIAL' },
+const socials = [
+  { name: 'GitHub', href: 'https://github.com/zyvenzn', icon: Github, label: 'github.com/zyvenzn' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@zyvengm', icon: Music2, label: 'tiktok.com/@zyvengm' },
+  { name: 'X', href: 'https://x.com/Zyvengm', icon: X, label: 'x.com/Zyvengm' },
+]
+const skills = [
+  { name: 'Web Development', icon: Code2 },
+  { name: 'UI/UX Design', icon: Palette },
+  { name: 'Game Development', icon: Gamepad2 },
+  { name: 'Blockchain & Web3', icon: Blocks },
+  { name: 'Trading Systems', icon: ChartNoAxesCombined },
+  { name: 'Problem Solving', icon: Lightbulb },
+]
+const projects = [
+  { name: 'MEMEVERSE', type: 'Next-Gen Web3 Universe', image: '/project-memeverse.svg', note: 'A digital universe concept' },
+  { name: 'ZYVENGM Terminal', type: 'Trade. Analyze. Create.', image: '/project-terminal.svg', note: 'A custom trading game concept' },
+  { name: 'Dark Nexus', type: 'Game Project', image: '/project-nexus.svg', note: 'An experimental game concept' },
+  { name: 'Portfolio v2.0', type: 'Next-Gen Portfolio', image: '/project-portfolio.svg', note: 'Personal digital space' },
+]
+const affiliates = [
+  { name: 'Pump.fun', href: 'https://pump.fun/u/Zyvenn', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/pumpfun.svg', caption: 'Trade Memecoins' },
+  { name: 'FOMO', href: 'https://fomo.family/r/Zyvengm', logo: '/fomo-app-logo.svg', caption: 'Discover Memecoins' },
+  { name: 'Axiom', href: 'https://axiom.trade/@zyven', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/axiom.svg', caption: 'Trade Smarter' },
+  { name: 'GMGN', href: 'https://gmgn.ai/r/W3HH77cw', logo: '/gmgn-app-logo.svg', caption: 'Track & Trade' },
+]
+const nav = [
+  { label: 'Home', href: '#home', icon: Home },
+  { label: 'About', href: '#about', icon: UserRound },
+  { label: 'Projects', href: '#projects', icon: BriefcaseBusiness },
+  { label: 'Contact', href: '#contact', icon: Mail },
 ]
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
-    <main className="page-shell">
-      <nav className="nav wrap">
-        <a className="wordmark" href="#top" aria-label="ZyvenGM home"><span className="brand-dot" />zyven<span>gm</span><sup>®</sup></a>
-        <div className="nav-right"><span className="availability"><i /> AVAILABLE ONLINE</span><a className="nav-link" href="https://x.com/Zyvengm" target="_blank" rel="noreferrer">LET'S CONNECT <ArrowUpRight size={14} /></a></div>
-      </nav>
+    <main className="portfolio-frame" id="home">
+      <header className="topbar">
+        <a className="identity" href="#home"><span className="z-logo">Z</span><span>ZYVENGM</span></a>
+        <button className="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X /> : <Menu />}</button>
+        <nav className={menuOpen ? 'desktop-nav open' : 'desktop-nav'}>
+          {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Contact'].map((item) =>
+            <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{item}</a>
+          )}
+        </nav>
+        <a className="connect-pill" href="#contact">Let’s Connect <ArrowRight size={15} /></a>
+      </header>
 
-      <section className="hero wrap" id="top">
-        <motion.div className="hero-copy" initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .65 }}>
-          <div className="eyebrow"><Sparkles size={13} /> PERSONAL DIGITAL SPACE <span>—</span> 2026</div>
-          <h1>Just a human<br />on the <em>internet.</em></h1>
-          <p className="intro">Exploring the on-chain world, connecting with good people, and following the next big idea. This is where you can find me.</p>
-          <a className="scroll-cue" href="#links"><span className="scroll-icon"><ArrowDownRight size={16} /></span> EXPLORE MY CORNER <span className="line" /></a>
-        </motion.div>
-        <motion.div className="hero-art" initial={{ opacity: 0, scale: .92, rotate: 5 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: .8, delay: .15 }}>
-          <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="art-core"><span>ZYV</span><b>✳</b></div>
-          <span className="art-label label-top">INTERNET NATIVE</span><span className="art-label label-bottom">SOLANA ECOSYSTEM ↗</span>
-          <span className="spark spark-a">✳</span><span className="spark spark-b">✳</span>
-        </motion.div>
-        <div className="hero-index">01 <span>/</span> 03</div>
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-art" />
+        <div className="hero-copy">
+          <span className="hello-label">Hello, I’m</span>
+          <h1 id="hero-title">ZYVENGM</h1>
+          <h2>Developer <i /> Designer <i /> Creator</h2>
+          <p>Turning ideas into extraordinary digital experiences.<br />Build. Create. Innovate.</p>
+          <a className="outline-button" href="#projects">Explore My Work <ArrowDown size={16} /></a>
+          <div className="hero-socials">
+            {socials.map(({name,href,icon:Icon}) => <a key={name} href={href} target="_blank" rel="noreferrer" aria-label={name}><Icon size={19}/></a>)}
+          </div>
+        </div>
+        <div className="hero-z" aria-hidden="true"><span>Z</span><i/><b/></div>
+        <div className="hero-edge"><span>SCROLL TO EXPLORE</span><span>01 — THE CREATOR</span></div>
       </section>
 
-      <section className="links-section wrap" id="links">
-        <div className="section-heading"><div><span className="eyebrow">THE DIGITAL FOOTPRINT</span><h2>Find me <em>here.</em></h2></div><p>Three tabs open.<br />Infinite possibilities.</p></div>
-        <div className="link-grid">
-          {links.map((item, index) => (
-            <motion.a className="link-card" href={item.href} target="_blank" rel="noreferrer" key={item.name} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .5, delay: index * .1 }} whileHover={{ y: -6 }}>
-              <div className="card-top"><span className="card-label">{item.label}</span><span className="card-arrow"><ArrowUpRight size={17} /></span></div>
-              <div className={`platform-mark ${item.tone}`}>{item.mark}</div>
-              <div className="card-info"><h3>{item.name}</h3><span className="handle">{item.handle}</span><p>{item.description}</p></div>
-              <div className="card-bottom"><span>OPEN PROFILE</span><MoveUpRight size={15} /></div>
-            </motion.a>
-          ))}
+      <section className="about-skills" id="about">
+        <div className="profile-image"><img src="/profile-portrait.svg" alt="Stylized ZYVENGM profile artwork" /></div>
+        <div className="about-copy">
+          <span className="eyebrow">ABOUT ME <i /></span>
+          <h2>Who is <em>ZYVENGM?</em></h2>
+          <p>I’m a passionate developer and creator, focused on building innovative solutions, creating immersive experiences, and exploring the limitless possibilities of technology.</p>
+          <a className="small-link" href="#contact">Know More About Me <ArrowRight size={15}/></a>
+        </div>
+        <div className="skills-block" id="skills">
+          <span className="eyebrow">MY SKILLS <i /></span>
+          <h2>Skills &amp; Expertise</h2>
+          <div className="skills-grid">
+            {skills.map(({name,icon:Icon}) => <div className="skill-tile" key={name}><Icon size={25}/><span>{name}</span></div>)}
+          </div>
         </div>
       </section>
 
-      <section className="note wrap"><div className="note-icon"><Zap size={19} /></div><div><span className="eyebrow">A LITTLE NOTE</span><p>Stay curious. Stay early. <em>Have fun out there.</em></p></div><span className="note-aside">BUILT ON CURIOSITY ↗</span></section>
+      <section className="affiliate-section" id="affiliates">
+        <div className="affiliate-heading"><span className="eyebrow">APP TRADE LINK <i /></span><p>Join &amp; Explore</p></div>
+        <div className="affiliate-grid">
+          {affiliates.map(({name,href,logo,caption}) => <a className="affiliate-card" key={name} href={href} target="_blank" rel="noopener noreferrer sponsored" aria-label={`Open ${name} app trade link`}>
+            <span className="affiliate-brand"><img src={logo} alt={`${name} logo`} loading="lazy" /><strong>{name}</strong></span>
+            <span className="affiliate-caption">{caption}<ArrowRight size={14}/></span>
+          </a>)}
+        </div>
+      </section>
 
-      <footer className="footer wrap"><a className="wordmark" href="#top"><span className="brand-dot" />zyven<span>gm</span><sup>®</sup></a><span className="footer-copy">INDEPENDENTLY ONLINE · © 2026 ZYVENGM</span><a className="back-top" href="#top">BACK TO TOP <ArrowUpRight size={14} /></a></footer>
+      <section className="projects-experience">
+        <div className="projects-block" id="projects">
+          <div className="section-top"><div><span className="eyebrow">SELECTED WORK <i /></span><h2>MY PROJECTS</h2><p>Featured Projects</p></div><a href="#contact">View All Projects <ArrowRight size={14}/></a></div>
+          <div className="project-grid">
+            {projects.map((project,index) => <motion.article className="project-card" key={project.name} initial={{opacity:0,y:14}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.45,delay:index*.07}}>
+              <img src={project.image} alt="" />
+              <div className="project-meta"><div><h3>{project.name}</h3><p>{project.type}</p></div><a href="#contact" aria-label={`Ask about ${project.name}`}><ArrowUpRight size={16}/></a></div>
+            </motion.article>)}
+          </div>
+        </div>
+        <aside className="experience-block" id="experience">
+          <span className="eyebrow">EXPERIENCE <i /></span><h2>My Journey</h2>
+          <div className="journey-list">
+            <div className="journey-item"><span>NOW</span><div><strong>Independent Creator</strong><p>Building personal projects and exploring ideas.</p></div></div>
+            <div className="journey-item"><span>01</span><div><strong>Developer &amp; Designer</strong><p>Learning by designing, developing, and experimenting.</p></div></div>
+            <div className="journey-item"><span>∞</span><div><strong>Always Exploring</strong><p>Curiosity, creativity, and continuous improvement.</p></div></div>
+          </div>
+        </aside>
+      </section>
+
+      <footer className="contact-footer" id="contact">
+        <div className="contact-intro"><span className="eyebrow">CONTACT <i /></span><h2>Let’s Work Together</h2><p>Have a project in mind or just want to say hi?<br/>Feel free to reach out!</p><a className="small-link" href="https://x.com/Zyvengm" target="_blank" rel="noreferrer">Contact Me <ArrowRight size={15}/></a></div>
+        <div className="social-directory">
+          {socials.map(({name,href,icon:Icon,label})=><a key={name} href={href} target="_blank" rel="noreferrer"><Icon size={19}/><span>{label}</span><ArrowUpRight size={14}/></a>)}
+        </div>
+        <div className="motto">DREAM BIG <b>•</b> BUILD BOLDER<small>— ZYVENGM —</small></div>
+      </footer>
+      <div className="copyright"><a className="identity" href="#home"><span className="z-logo">Z</span><span>ZYVENGM</span></a><span>© {new Date().getFullYear()} ZYVENGM. ALL RIGHTS RESERVED.</span><a href="#home">BACK TO TOP ↑</a></div>
+      <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
+        {nav.map(({label,href,icon:Icon},i)=><a key={label} className={i===0?'active':''} href={href}><Icon size={19}/><span>{label}</span></a>)}
+      </nav>
     </main>
   )
 }
-
 export default App
