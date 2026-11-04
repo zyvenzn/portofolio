@@ -27,9 +27,9 @@ const projects = [
 ]
 const affiliates = [
   { name: 'Pump.fun', href: 'https://pump.fun/u/Zyvenn', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/pumpfun.svg', caption: 'Trade Memecoins' },
-  { name: 'FOMO', href: 'https://fomo.family/r/Zyvengm', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/fomo.svg', caption: 'Discover Memecoins' },
+  { name: 'FOMO', href: 'https://fomo.family/r/Zyvengm', logo: '/fomo-app-logo.svg', caption: 'Discover Memecoins' },
   { name: 'Axiom', href: 'https://axiom.trade/@zyven', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/axiom.svg', caption: 'Trade Smarter' },
-  { name: 'GMGN', href: 'https://gmgn.ai/r/W3HH77cw', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/gmgn.svg', caption: 'Track & Trade' },
+  { name: 'GMGN', href: 'https://gmgn.ai/r/W3HH77cw', logo: '/gmgn-app-logo.svg', caption: 'Track & Trade' },
 ]
 const nav = [
   { label: 'Home', href: '#home', icon: Home },
@@ -87,9 +87,9 @@ function App() {
       </section>
 
       <section className="affiliate-section" id="affiliates">
-        <div className="affiliate-heading"><span className="eyebrow">AFFILIATE LINKS <i /></span><p>Join &amp; Explore</p></div>
+        <div className="affiliate-heading"><span className="eyebrow">APP TRADE LINK <i /></span><p>Join &amp; Explore</p></div>
         <div className="affiliate-grid">
-          {affiliates.map(({name,href,logo,caption}) => <a className="affiliate-card" key={name} href={href} target="_blank" rel="noopener noreferrer sponsored" aria-label={`Open ${name} affiliate link`}>
+          {affiliates.map(({name,href,logo,caption}) => <a className="affiliate-card" key={name} href={href} target="_blank" rel="noopener noreferrer sponsored" aria-label={`Open ${name} app trade link`}>
             <span className="affiliate-brand"><img src={logo} alt={`${name} logo`} loading="lazy" /><strong>{name}</strong></span>
             <span className="affiliate-caption">{caption}<ArrowRight size={14}/></span>
           </a>)}
