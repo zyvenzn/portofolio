@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import {
   ArrowDown, ArrowRight, ArrowUpRight, Blocks, Code2, Github, Gamepad2,
   Lightbulb, MapPin, Menu, Music2, Palette, X, ChartNoAxesCombined,
-  Home, UserRound, BriefcaseBusiness, Mail, ChevronRight
+  Home, UserRound, BriefcaseBusiness, Mail
 } from 'lucide-react'
 
 const socials = [
