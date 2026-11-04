@@ -20,7 +20,7 @@ const skills = [
   { name: 'Problem Solving', icon: Lightbulb },
 ]
 const projects = [
-  { name: 'MEMEVERSE', type: 'Next-Gen Web3 Universe', image: '/project-memeverse.svg', note: 'A digital universe concept' },
+  { name: 'MEMEVERSE', type: 'MEMEVERSE trading game and is still a demo, and not ready to play.', image: '/memeverse-logo.svg', href: 'https://memeverse-pied.vercel.app/', note: 'Trading game demo — not ready to play' },
   { name: 'ZYVENGM Terminal', type: 'Trade. Analyze. Create.', image: '/project-terminal.svg', note: 'A custom trading game concept' },
   { name: 'Dark Nexus', type: 'Game Project', image: '/project-nexus.svg', note: 'An experimental game concept' },
   { name: 'Portfolio v2.0', type: 'Next-Gen Portfolio', image: '/project-portfolio.svg', note: 'Personal digital space' },
@@ -102,7 +102,7 @@ function App() {
           <div className="project-grid">
             {projects.map((project,index) => <motion.article className="project-card" key={project.name} initial={{opacity:0,y:14}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.45,delay:index*.07}}>
               <img src={project.image} alt="" />
-              <div className="project-meta"><div><h3>{project.name}</h3><p>{project.type}</p></div><a href="#contact" aria-label={`Ask about ${project.name}`}><ArrowUpRight size={16}/></a></div>
+              <div className="project-meta"><div><h3>{project.name}</h3><p>{project.type}</p></div><a href={project.href || "#contact"} target={project.href ? "_blank" : undefined} rel={project.href ? "noopener noreferrer" : undefined} aria-label={project.href ? `Open ${project.name}` : `Ask about ${project.name}`}><ArrowUpRight size={16}/></a></div>
             </motion.article>)}
           </div>
         </div>
