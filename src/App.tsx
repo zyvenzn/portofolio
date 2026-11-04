@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
-  ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Blocks, Code2,
-  Github, Gamepad2, Lightbulb, Mail, MapPin, Menu, Music2, Palette,
-  X as CloseIcon, ChartNoAxesCombined, Sparkles
+  ArrowDown, ArrowRight, ArrowUpRight, Blocks, Code2,
+  Github, Gamepad2, Lightbulb, MapPin, Menu, Music2, Palette,
+  X as CloseIcon, ChartNoAxesCombined
 } from 'lucide-react'
 
 const socials = [
