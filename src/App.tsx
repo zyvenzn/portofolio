@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   ArrowDown, ArrowRight, ArrowUpRight, Blocks, Code2, Github, Gamepad2,
-  Lightbulb, MapPin, Menu, Music2, Palette, X, ChartNoAxesCombined,
+  Lightbulb, Menu, Music2, Palette, X, ChartNoAxesCombined,
   Home, UserRound, BriefcaseBusiness, Mail
 } from 'lucide-react'
 
@@ -24,6 +24,12 @@ const projects = [
   { name: 'ZYVENGM Terminal', type: 'Trade. Analyze. Create.', image: '/project-terminal.svg', note: 'A custom trading game concept' },
   { name: 'Dark Nexus', type: 'Game Project', image: '/project-nexus.svg', note: 'An experimental game concept' },
   { name: 'Portfolio v2.0', type: 'Next-Gen Portfolio', image: '/project-portfolio.svg', note: 'Personal digital space' },
+]
+const affiliates = [
+  { name: 'Pump.fun', href: 'https://pump.fun/u/Zyvenn', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/pumpfun.svg', caption: 'Trade Memecoins' },
+  { name: 'FOMO', href: 'https://fomo.family/r/Zyvengm', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/fomo.svg', caption: 'Discover Memecoins' },
+  { name: 'Axiom', href: 'https://axiom.trade/@zyven', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/axiom.svg', caption: 'Trade Smarter' },
+  { name: 'GMGN', href: 'https://gmgn.ai/r/W3HH77cw', logo: 'https://cdn.jsdelivr.net/npm/solana-icons@latest/svg/platforms/gmgn.svg', caption: 'Track & Trade' },
 ]
 const nav = [
   { label: 'Home', href: '#home', icon: Home },
@@ -80,6 +86,16 @@ function App() {
         </div>
       </section>
 
+      <section className="affiliate-section" id="affiliates">
+        <div className="affiliate-heading"><span className="eyebrow">AFFILIATE LINKS <i /></span><p>Join &amp; Explore</p></div>
+        <div className="affiliate-grid">
+          {affiliates.map(({name,href,logo,caption}) => <a className="affiliate-card" key={name} href={href} target="_blank" rel="noopener noreferrer sponsored" aria-label={`Open ${name} affiliate link`}>
+            <span className="affiliate-brand"><img src={logo} alt={`${name} logo`} loading="lazy" /><strong>{name}</strong></span>
+            <span className="affiliate-caption">{caption}<ArrowRight size={14}/></span>
+          </a>)}
+        </div>
+      </section>
+
       <section className="projects-experience">
         <div className="projects-block" id="projects">
           <div className="section-top"><div><span className="eyebrow">SELECTED WORK <i /></span><h2>MY PROJECTS</h2><p>Featured Projects</p></div><a href="#contact">View All Projects <ArrowRight size={14}/></a></div>
@@ -104,7 +120,6 @@ function App() {
         <div className="contact-intro"><span className="eyebrow">CONTACT <i /></span><h2>Let’s Work Together</h2><p>Have a project in mind or just want to say hi?<br/>Feel free to reach out!</p><a className="small-link" href="https://x.com/Zyvengm" target="_blank" rel="noreferrer">Contact Me <ArrowRight size={15}/></a></div>
         <div className="social-directory">
           {socials.map(({name,href,icon:Icon,label})=><a key={name} href={href} target="_blank" rel="noreferrer"><Icon size={19}/><span>{label}</span><ArrowUpRight size={14}/></a>)}
-          <div className="location-row"><MapPin size={18}/><span>Indonesia</span></div>
         </div>
         <div className="motto">DREAM BIG <b>•</b> BUILD BOLDER<small>— ZYVENGM —</small></div>
       </footer>
